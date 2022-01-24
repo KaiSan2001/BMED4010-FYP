@@ -5,8 +5,9 @@ Coder: Chan Kai San
 E-mail: u3556373@connect.hku.hk
 Description: This script aims to read in the filtered data from publication, divide the total amount into 10 groups, select 100 samples randomly from each group, and save the samples into
 a new file for later operation
-Reference: - Excel File processing 
-           - Dictionary
+Reference: - Excel File processing: https://blog.csdn.net/sinat_28576553/article/details/81275650
+           - Random Sampling: https://blog.csdn.net/qq_31279347/article/details/82795405
+           - Dictionary: https://blog.csdn.net/a411178010/article/details/78548168
 '''
 
 import openpyxl
