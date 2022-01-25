@@ -1,7 +1,7 @@
 '''
 Starting Date: 2022.01.11
 Ending Date: Still Processing
-Last Editing Date: 2022.01.24
+Last Editing Date: 2022.01.25
 Coder: Chan Kai San
 E-mail: u3556373@connect.hku.hk
 Description: This pipeline is designed to automate the usage of EvoEF, by simply input the sematic command, high-throughput mutation can
@@ -38,6 +38,8 @@ print("o To Analyse the heat map, you can input: ");print("DDGAnalyse")
 print("\n")
 print("o To Delete the Mutant file you created before, you can input: ");print("RemoveFile")
 print("\n")
+print("o To get help, you can input: ");print("Help")
+print("\n")
 print("o To Quite the pipeline, you can input: ");print("Quit")
 print("\n")
 pipe=True
@@ -45,7 +47,7 @@ pipe=True
 #----Function Operation----#
 while pipe:
     #----Check the validity of command#
-    command_check=["RepairStructure","MutatePDB","CalculateDDG","DDGAnalyse","RemoveFile","Quit"]
+    command_check=["RepairStructure","MutatePDB","CalculateDDG","DDGAnalyse","RemoveFile","Help","help","h","Quit","quit","exit"]
     command=str(input("Please input the function you want to use: "))
     
     if command not in command_check:
@@ -178,7 +180,7 @@ while pipe:
                 print('-'*len(content))
                 print('\n')
             else:
-                pdb_id=pdb[0:4].upper()
+                pdb_id=pdb[0:4]
                 mutant_number=len(open(mutate_file,'r').readlines())
                 print('The mutation is under processing......Please wait......')
                 path = os.path.abspath('.')
@@ -194,8 +196,26 @@ while pipe:
                 print('\n')
 
 
+        elif command == "Help" or command == "help" or command == "h":
+            print('-----Help Page-----')
+            print("o To Repair the pdb file, you can input: ");print("RepairStructure")
+            print("\n")
+            print("o To Mutate the pdb file, you can input: ");print("MutatePDB")
+            print("\n")
+            print("o To Calculate the ddG, you can input: ");print("CalculateDDG")
+            print("\n")
+            print("o To Analyse the heat map, you can input: ");print("DDGAnalyse")
+            print("\n")
+            print("o To Delete the Mutant file you created before, you can input: ");print("RemoveFile")
+            print("\n")
+            print("o To Quite the Platform, you can input: ");print("Quit")
+            print("\n")
+            print("o To get help, you can input: ");print("Help")
+            print("\n")
 
-        elif command == "Quit":
+
+
+        elif command == "Quit" or command == "quit" or command == "exit":
             print("#"*54) #space before and after the information --> total 1+1+50+1+1=54
             print("#","EvoEF Automation Pipeline".center(50),"#")
             print("#"," ".center(50),"#")
@@ -208,7 +228,3 @@ while pipe:
             content='Thank you for your using!'
             print('-'*len(content));print(content);print('-'*len(content))
             pipe = False
-
-
-
-
