@@ -1,4 +1,3 @@
-#ddG_Binding
 This section contains the files for investigating the ddG_Binding
 The file KO_integrated.txt contains the GFP knockout value on day 14 for each SaCas9 variant, the first 52 values are for sgRNA ON1 while the rest of them are for sgRNA ON2
 The file mutant_integrated.txt contains the mutant types on day 14 for each SaCas9 variant, the first 52 values are for sgRNA ON1 while the rest of them are for sgRNA ON2
