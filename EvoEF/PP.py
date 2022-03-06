@@ -1,7 +1,7 @@
 '''
-Starting Date: 2022.02.23
+Starting Date: 2022.01.11
 Ending Date: Still Processing
-Last Editing Date: 2022.02.23
+Last Editing Date: 2022.03.06
 Coder: Chan Kai San
 E-mail: u3556373@connect.hku.hk
 Description: This programme is designed to construct a pipeline for high-throughput ddG_stability and ddG_binding calculation
@@ -33,7 +33,7 @@ print("#"*54)
 print("-----  Usage  -----")
 print("o To Optimze the pdb file, you can input: ");print("  OptimizePDB")
 print("o To Mutate the pdb file, you can input: ");print("  MutatePDB")
-print("o To Predict the ddG_stability, you can input: ");print("  PredictDDG")
+print("o To Predict the ddG_stability, you can input: ");print("  PredictStability")
 print("o To Predict the ddG_binding, you can input: ");print("  PredictBinding")
 print("o To Analyse the heat map, you can input: ");print("  DDGAnalyse")
 #print("o To Delete the Mutant file you created before, you can input: ");print("  RemoveFile")
@@ -46,7 +46,7 @@ pipe=True
 #----Function Operation----#
 while pipe:
     #----Check the validity of command#
-    command_check=["OptimizePDB","MutatePDB","PredictDDG","PredictBinding","DDGAnalyse","RemoveFile","Help","help","h","Quit","quit","exit"]
+    command_check=["OptimizePDB","MutatePDB","PredictStability","PredictBinding","DDGAnalyse","RemoveFile","Help","help","h","Quit","quit","exit"]
     command=str(input("Please input the function you want to use: "))
     
     if command not in command_check:
@@ -96,7 +96,7 @@ while pipe:
                     print('-'*len(content));print("Time taken for optimization is: %ss" %duration);print(content);print('-'*len(content))
                     print('\n')
                     os.chdir(path) #Back to the parental Pipeline directory
-                    print(os.path.abspath('.'))
+                    #print(os.path.abspath('.'))
                     
                 else:
                     duration = duration/60
@@ -104,7 +104,7 @@ while pipe:
                     print('-'*len(content));print("Time taken for optimization is: %.2fmins" %duration);print(content);print('-'*len(content))
                     print('\n')
                     os.chdir(path) #Back to the parental Pipeline directory
-                    print(os.path.abspath('.'))
+                    #print(os.path.abspath('.'))
         
 
         #----MutatePDB----#
@@ -164,7 +164,7 @@ while pipe:
 
 
         #ddG_Stability Computation#
-        elif command == "PredictDDG":
+        elif command == "PredictStability":
             print('-----%s is Working-----'%command)
             print('REMINDER: This Function Can Only Be Used After The "MutatePDB" Function')
             print('Please Note That Mutant Files Are Required For This Function!!')
@@ -207,6 +207,7 @@ while pipe:
 
                     #Calculate the difference in Folding Energy#
                     for i in range(mutant_number):
+                        t1=time.time()
                         x=str(i+1).zfill(4)
                         pdbid = pdb[0:4]
                         #Calculate the dG of Mutant#
@@ -219,8 +220,11 @@ while pipe:
                         result=os.popen(mission).readlines(); score=result[-3]; WTC_score = float(score[37:-1])
                         ddG_sample = str(MT_score - WTC_score)
                         ddG.append(ddG_sample)
+                        t2=time.time()
+                        print("ddG for %s is calculated and stored! Time cost: %.2f"%(mutant_name,t2-t1))
 
                     #Output the ddG corresponding to their Mutation#
+                    print("Processing the storage file!")
                     wb = xlwt.Workbook()
                     sh = wb.add_sheet('DDG')
                     sh.write(0,0,'Mutation')
@@ -339,7 +343,7 @@ while pipe:
                     sh.write(i+1,0, mutation_list[i])
                 for j in range (1,mutant_number+1):
                     sh.write(j,1,float(ddG_binding[j]))
-                file_name=('ddG_binding_of_%s.csv'%pdbid)
+                file_name=('ddG_binding_of_%s'%pdbid)
                 wb.save(file_name)
                 ET = time.time()
                 #Output#
@@ -365,11 +369,12 @@ while pipe:
             print('-----Help Page-----')
             print("o To Optimze the pdb file, you can input: ");print("  OptimizePDB")
             print("o To Mutate the pdb file, you can input: ");print("  MutatePDB")
-            print("o To Calculate the ddG_stability, you can input: ");print("  CalculateDDG")
+            print("o To Predict the ddG_stability, you can input: ");print("  PredictStability")
+            print("o To Predict the ddG_binding, you can input: ");print("  PredictBinding")
             print("o To Analyse the heat map, you can input: ");print("  DDGAnalyse")
-            print("o To Delete the Mutant file you created before, you can input: ");print("  RemoveFile")
+            #print("o To Delete the Mutant file you created before, you can input: ");print("  RemoveFile")
             print("o To get help, you can input: ");print("  Help")
-            print("o To Quite the programme you can input: ");print("  Quit")
+            print("o To Quit the programme you can input: ");print("  Quit")
             print('-------------------')
 
 
