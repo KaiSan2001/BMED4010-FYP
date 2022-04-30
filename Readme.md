@@ -1,4 +1,4 @@
 # BMED4010 Final Year Project: Exploration of computational and experimental approaches for engineering CRISPR-Cas9 nuclease
 
-
-The code for Final Year Project and ddG exploration
+## Introduction
+The CRISPR-Cas9 technology is burgeoning and many Cas9 nuclease variants have been engineered for genome editing applications. However, the performance of Cas9s still needs further improvement. Machine Learning-Assisted Directed Evolution (MLDE) was developed and applied into the field. MLDE can report the sequence-to-fitness relationship from the pre-labelled dataset, and can also accelerate the optimal variants filtering from the ultrahigh throughput input space by prioritizing the sequence set which containing the best variants. To further compress the initialization of MLDE model training, different techniques such as zero-shot prediction were proposed to guide the initial library establishment. 
