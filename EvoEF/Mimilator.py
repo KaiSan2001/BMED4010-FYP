@@ -9,7 +9,6 @@ Description: This programme is designed to construct a pipeline for high-through
              Since EvoEF has more accurate predicting power in ddG_stability, EvoEF is employed for the ddG_stability computation
              Since UniDesign is capable for protein <---> nucleic acids binding analysis, UniDesign is harnnessed for the ddG_binding computation
              The result can be used to generate the corresponding Heat Map, and can also be used to perform Correlation Test such as Pearson and Spearman
-Reference: 
 '''
 
 
@@ -221,7 +220,7 @@ while pipe:
                         ddG_sample = str(MT_score - WTC_score)
                         ddG.append(ddG_sample)
                         t2=time.time()
-                        print("ddG for %s is calculated and stored! Time cost: %.2f"%(mutant_name,t2-t1))
+                        print("ddG for %s is calculated and stored! Time cost: %.2fs"%(mutant_name,t2-t1))
 
                     #Output the ddG corresponding to their Mutation#
                     print("Processing the storage file!")
@@ -362,6 +361,12 @@ while pipe:
                     print('-'*len(content));print("Time taken for predicting ddG_binding is: %.2fmins" %duration);print(content);print('-'*len(content))
                     print('\n')
                     os.chdir(path) #Back to the parental Pipeline directory
+
+        #DDG heat map analysis#
+        elif command == "DDGAnalyse":
+            print('\n')
+            print('-----%s is Working-----'%command)
+            print('Sorry! This function is still under development...')
 
 
         #Call the Help Page#
