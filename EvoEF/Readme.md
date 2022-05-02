@@ -17,6 +17,6 @@ Please contact the author if you find bugs:
 - u3556373@connect.hku.hk (seems will be expired after my graduation soon)
 - zenc2001@gmail.com (constant email address)
 
-#### Acknowledgement
+### Acknowledgement
 - The development and construction of _**Mimilator**_ is accomplished under the guidance of Dr. Athena Chu @AthenACHY
 - The name of _**Mimilator**_ is inspired by Xinlu @cath929
