@@ -1,1 +1,0 @@
-# Mimilator Quick Start
