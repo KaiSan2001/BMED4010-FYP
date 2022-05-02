@@ -1,6 +1,6 @@
 # Mimilator Introduction
 
-## What is _Mumilator_?
+## What is _Mimilator_?
 _**Mimilator**_ stands for Mimicking and Simulator. The _in silico_ protein engineering involves natural evolution mimicking and simulation of wet-lab experiments, which is exactly what _Mimilator_ is doing. As the processing of _EvoEF_ involves extensive command line input, which is absolutely cumbersome for highthroughput data operation, the automatic computation pipeline _Mimilator_ was constructed to reduce the laborious burden. By simply type in some commands, tons of computations and analysis can be performed and integrated.
 
 ## What can _Mimilator_ do?
